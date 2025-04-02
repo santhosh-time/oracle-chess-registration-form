@@ -13,6 +13,7 @@
       text-align: center;
       margin: 0;
       padding: 0;
+      color: #003366;
     }
     .container {
       max-width: 400px;
@@ -26,8 +27,13 @@
       width: 80px;
       margin-bottom: 10px;
     }
+    .footer {
+      margin-top: 20px;
+      font-size: 14px;
+      color: #003366;
+    }
     h2 {
-      color: #333;
+      color: #003366;
     }
     form {
       display: flex;
@@ -36,6 +42,7 @@
     }
     label {
       font-weight: 600;
+      color: #003366;
     }
     input {
       padding: 10px;
@@ -45,13 +52,13 @@
       width: 100%;
     }
     input[type="submit"] {
-      background: #333;
+      background: #003366;
       color: white;
       cursor: pointer;
       font-size: 16px;
     }
     input[type="submit"]:hover {
-      background: #555;
+      background: #002244;
     }
   </style>
 </head>
@@ -70,6 +77,12 @@
       <input type="password" id="password" name="password" required>
       <input type="submit" value="Submit">
     </form>
+    <div class="footer">
+      <img src="images/oracle_logo.png" alt="Oracle Logo" class="logo">
+      <p>For any information, please contact: <br>
+      Email: sample@oracle.com <br>
+      Slack: #chess-support</p>
+    </div>
   </div>
 </body>
 </html>
