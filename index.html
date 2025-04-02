@@ -29,7 +29,7 @@
       text-align: left;
     }
     .logo {
-      width: 100px;
+      width: 120px;
       display: block;
       margin: 0 auto 15px;
     }
@@ -73,8 +73,18 @@
   <script>
     function submitForm(event) {
       event.preventDefault();
-      alert("Registration Successful!");
-      document.getElementById("registrationForm").submit();
+      const form = document.getElementById("registrationForm");
+      const formData = new FormData(form);
+      fetch("https://docs.google.com/forms/d/e/1FAIpQLSc5ZJuW34onf47mvISh0t0GmMqxmeo89_JV0h6YNX2h-TEoAw/formResponse", {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"
+      }).then(() => {
+        alert("Registration Successful!");
+        form.reset();
+      }).catch(error => {
+        console.error("Error!", error);
+      });
     }
   </script>
 </head>
@@ -82,22 +92,19 @@
   <div class="container">
     <img src="images/chess_logo.png" alt="Chess Logo" class="logo">
     <h2>CHESS REGISTRATION FORM</h2>
-    <form id="registrationForm" action="https://docs.google.com/forms/d/e/1FAIpQLSc5ZJuW34onf47mvISh0t0GmMqxmeo89_JV0h6YNX2h-TEoAw/formResponse" method="post" target="_blank" onsubmit="submitForm(event)">
+    <form id="registrationForm" onsubmit="submitForm(event)">
       <label for="fname">First Name:</label>
       <input type="text" id="fname" name="entry.479955365" required>
       <label for="lname">Last Name:</label>
       <input type="text" id="lname" name="entry.2074384836" required>
       <label for="email">Email:</label>
       <input type="email" id="email" name="entry.1622030371" required>
-      <label for="password">Password:</label>
-      <input type="password" id="password" name="entry.YOUR_ENTRY_ID_4" required>
       <input type="submit" value="Submit">
     </form>
     <div class="footer">
       <img src="images/oracle_logo.png" alt="Oracle Logo" class="logo">
       <p>For any information, please contact: <br>
-      Email: sample@oracle.com <br>
-      Slack: #chess-support</p>
+      Slack: #oracle-chess</p>
     </div>
   </div>
 </body>
